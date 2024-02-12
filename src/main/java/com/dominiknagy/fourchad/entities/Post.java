@@ -11,6 +11,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @ManyToOne
+    @JoinColumn(name = "board_id")
     private Board board;
     private String imageLink;
     private Long imageSize;

@@ -26,8 +26,8 @@ public class BoardController {
 
     @GetMapping("/{acronym}")
     public ResponseEntity<Object> retrieveBoard(@PathVariable String acronym) {
-        var boardResponse = ResponseMapper.mapBoardResponse(boardService.retrieveBoard(acronym));
+        var boardPostsResponse = ResponseMapper.mapBoardPostsResponse(boardService.retrieveBoard(acronym));
 
-        return ResponseEntity.ok(boardResponse);
+        return ResponseEntity.ok(boardPostsResponse);
     }
 }

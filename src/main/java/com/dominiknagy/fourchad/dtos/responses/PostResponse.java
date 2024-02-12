@@ -1,14 +1,16 @@
 package com.dominiknagy.fourchad.dtos.responses;
 
+import lombok.Data;
+
 import java.time.OffsetDateTime;
 
+@Data
 public class PostResponse {
-    private BoardResponse board;
+    private Long id;
     private String imageLink;
     private Long imageSize;
     private String imageResolution;
     private String title;
-    private String poster;
     private OffsetDateTime creationDateTime;
     private String text;
     private Boolean parent;

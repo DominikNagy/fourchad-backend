@@ -17,7 +17,7 @@ public class Board {
     private String acronym;
     private String title;
     private OffsetDateTime creationDateTime;
-    @OneToMany
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts;
     @ManyToOne
     private User createdBy;
