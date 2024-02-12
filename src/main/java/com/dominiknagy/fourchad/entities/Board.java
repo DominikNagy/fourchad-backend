@@ -16,5 +16,7 @@ public class Board {
     private String title;
     private OffsetDateTime creationDateTime;
     @OneToMany
-    private List<Post> post;
+    private List<Post> posts;
+    @ManyToOne
+    private User createdBy;
 }

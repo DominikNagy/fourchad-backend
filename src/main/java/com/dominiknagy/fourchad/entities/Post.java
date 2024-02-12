@@ -2,7 +2,6 @@ package com.dominiknagy.fourchad.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.time.OffsetDateTime;
 
 @Data
@@ -23,4 +22,6 @@ public class Post {
     private Boolean parent;
     private Long parentId;
     private Long replyTo;
+    @ManyToOne
+    private User createdBy;
 }
