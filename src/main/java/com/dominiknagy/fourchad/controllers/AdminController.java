@@ -2,7 +2,6 @@ package com.dominiknagy.fourchad.controllers;
 
 import com.dominiknagy.fourchad.dtos.requests.BoardRequest;
 import com.dominiknagy.fourchad.dtos.responses.BoardResponse;
-import com.dominiknagy.fourchad.entities.Board;
 import com.dominiknagy.fourchad.mappers.ResponseMapper;
 import com.dominiknagy.fourchad.services.interfaces.BoardService;
 import com.dominiknagy.fourchad.services.interfaces.PostService;

@@ -2,7 +2,7 @@ package com.dominiknagy.fourchad.services.implementations;
 
 import com.dominiknagy.fourchad.dtos.requests.BoardRequest;
 import com.dominiknagy.fourchad.entities.Board;
-import com.dominiknagy.fourchad.exceptions.BoardNotFoundException;
+import com.dominiknagy.fourchad.exceptions.specific.BoardNotFoundException;
 import com.dominiknagy.fourchad.repositories.BoardRepository;
 import com.dominiknagy.fourchad.services.interfaces.BoardService;
 import lombok.RequiredArgsConstructor;
