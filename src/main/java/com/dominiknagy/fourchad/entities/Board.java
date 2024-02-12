@@ -3,6 +3,7 @@ package com.dominiknagy.fourchad.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Data
@@ -13,6 +14,7 @@ public class Board {
     private Long id;
     private String acronym;
     private String title;
+    private OffsetDateTime creationDateTime;
     @OneToMany
     private List<Post> post;
 }

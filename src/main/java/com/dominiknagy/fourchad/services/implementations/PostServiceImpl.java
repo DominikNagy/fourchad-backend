@@ -1,6 +1,6 @@
 package com.dominiknagy.fourchad.services.implementations;
 
-import com.dominiknagy.fourchad.dtos.PostRequest;
+import com.dominiknagy.fourchad.dtos.requests.PostRequest;
 import com.dominiknagy.fourchad.entities.Board;
 import com.dominiknagy.fourchad.entities.Post;
 import com.dominiknagy.fourchad.repositories.BoardRepository;

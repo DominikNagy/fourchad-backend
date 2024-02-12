@@ -9,3 +9,11 @@ spring:
       properties:
         hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
+
+logging:
+  level:
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"
+  console:
+    enabled: true

@@ -1,13 +1,15 @@
 package com.dominiknagy.fourchad.controllers;
 
+import com.dominiknagy.fourchad.dtos.requests.BoardRequest;
+import com.dominiknagy.fourchad.dtos.responses.BoardResponse;
+import com.dominiknagy.fourchad.entities.Board;
+import com.dominiknagy.fourchad.mappers.ResponseMapper;
 import com.dominiknagy.fourchad.services.interfaces.BoardService;
 import com.dominiknagy.fourchad.services.interfaces.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,9 +20,10 @@ public class AdminController {
     private final BoardService boardService;
     private final PostService postService;
 
-    @PostMapping("/createBoard")
-    public ResponseEntity<String> createBoard() {
-        boardService.createBoard("b", "random");
-        return ResponseEntity.ok("New board created.");
+    @PostMapping("/boards")
+    public ResponseEntity<Object> createBoard(@RequestBody BoardRequest boardRequest) {
+        BoardResponse boardResponse = ResponseMapper.mapBoardResponse(boardService.createBoard(boardRequest));
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(boardResponse);
     }
 }

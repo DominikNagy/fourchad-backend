@@ -1,6 +1,6 @@
 package com.dominiknagy.fourchad.controllers;
 
-import com.dominiknagy.fourchad.dtos.PostRequest;
+import com.dominiknagy.fourchad.dtos.requests.PostRequest;
 import com.dominiknagy.fourchad.services.interfaces.BoardService;
 import com.dominiknagy.fourchad.services.interfaces.PostService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +20,11 @@ public class WebController {
     public ResponseEntity<String> createParentPost(@RequestBody PostRequest postRequest) {
         postService.createParentPost(postRequest);
         return ResponseEntity.ok("New parent post created.");
+    }
+
+    @GetMapping("/boards")
+    public ResponseEntity<Object> retrieveBoards() {
+        return ResponseEntity.ok(boardService.retrieveBoards());
     }
 
     @GetMapping("/boards/{acronym}")

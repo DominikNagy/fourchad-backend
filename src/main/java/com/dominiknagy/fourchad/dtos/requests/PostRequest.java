@@ -1,4 +1,4 @@
-package com.dominiknagy.fourchad.dtos;
+package com.dominiknagy.fourchad.dtos.requests;
 
 import lombok.Data;
 
