@@ -7,7 +7,7 @@ import com.dominiknagy.fourchad.entities.Post;
 import java.util.List;
 
 public interface PostService {
-    void createParentPost(PostRequest postRequest);
+    Post createParentPost(PostRequest postRequest);
     void createChildPost(PostRequest postRequest);
     List<Post> retrieveParentPosts(Board board);
     List<Post> retrievePosts(Long parentId);

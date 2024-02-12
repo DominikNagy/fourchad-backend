@@ -1,6 +1,7 @@
 package com.dominiknagy.fourchad.exceptions;
 
 import com.dominiknagy.fourchad.exceptions.specific.BoardNotFoundException;
+import com.dominiknagy.fourchad.exceptions.specific.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -32,5 +33,12 @@ public class GlobalExceptionHandler {
         ExceptionResponse exceptionResponse =
                 new ExceptionResponse(e.getMessage(), HttpStatus.METHOD_NOT_ALLOWED, OffsetDateTime.now());
         return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(exceptionResponse);
+    }
+
+    @ExceptionHandler({UserNotFoundException.class})
+    public ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException e) {
+        ExceptionResponse exceptionResponse =
+                new ExceptionResponse(e.getMessage(), HttpStatus.NOT_FOUND, OffsetDateTime.now());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionResponse);
     }
 }

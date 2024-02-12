@@ -29,7 +29,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public Board retrieveBoard(String acronym) {
-        return boardRepository.findByAcronym(acronym).orElseThrow(() -> new BoardNotFoundException("Board not found"));
+        return boardRepository.findByAcronym(acronym).orElseThrow(BoardNotFoundException::new);
     }
 
     @Override

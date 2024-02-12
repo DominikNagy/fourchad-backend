@@ -1,26 +1,18 @@
-package com.dominiknagy.fourchad.entities;
+package com.dominiknagy.fourchad.dtos.responses;
 
-import jakarta.persistence.*;
-import lombok.Data;
 import java.time.OffsetDateTime;
 
-@Data
-@Entity
-public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
-    @ManyToOne
-    private Board board;
+public class PostResponse {
+    private BoardResponse board;
     private String imageLink;
     private Long imageSize;
     private String imageResolution;
     private String title;
+    private String poster;
     private OffsetDateTime creationDateTime;
     private String text;
     private Boolean parent;
     private Long parentId;
     private Long replyTo;
-    @ManyToOne
-    private User createdBy;
+    private UserResponse createdBy;
 }

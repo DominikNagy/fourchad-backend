@@ -1,5 +1,6 @@
 package com.dominiknagy.fourchad.entities;
 
+import com.dominiknagy.fourchad.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,4 +16,5 @@ public class User {
     @OneToMany
     private List<Board> boards;
     private String nickname;
+    private UserRole userRole;
 }

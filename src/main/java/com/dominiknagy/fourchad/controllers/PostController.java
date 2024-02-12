@@ -15,8 +15,9 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping
-    public ResponseEntity<String> createParentPost(@RequestBody PostRequest postRequest) {
-        postService.createParentPost(postRequest);
-        return ResponseEntity.ok("New parent post created.");
+    public ResponseEntity<Object> createParentPost(@RequestBody PostRequest postRequest) {
+        var postResponse = postService.createParentPost(postRequest);
+
+        return ResponseEntity.ok(postResponse);
     }
 }
