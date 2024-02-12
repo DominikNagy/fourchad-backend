@@ -1,6 +1,7 @@
 package com.dominiknagy.fourchad.services.implementations;
 
 import com.dominiknagy.fourchad.entities.Board;
+import com.dominiknagy.fourchad.exceptions.BoardNotFoundException;
 import com.dominiknagy.fourchad.repositories.BoardRepository;
 import com.dominiknagy.fourchad.services.interfaces.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -16,18 +17,22 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void createBoard(String acronym, String title) {
+        Board board = new Board();
+        board.setAcronym(acronym);
+        board.setTitle(title);
 
+        boardRepository.save(board);
     }
 
     @Override
     public Board retrieveBoard(String acronym) {
 
-        return null;
+        return boardRepository.findByAcronym(acronym).orElseThrow(() -> new BoardNotFoundException("Board not found"));
     }
 
     @Override
     public List<Board> retrieveBoards() {
 
-        return null;
+        return boardRepository.findAll();
     }
 }

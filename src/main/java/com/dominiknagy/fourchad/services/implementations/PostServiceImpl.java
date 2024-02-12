@@ -1,5 +1,6 @@
 package com.dominiknagy.fourchad.services.implementations;
 
+import com.dominiknagy.fourchad.dtos.PostRequest;
 import com.dominiknagy.fourchad.entities.Board;
 import com.dominiknagy.fourchad.entities.Post;
 import com.dominiknagy.fourchad.repositories.BoardRepository;
@@ -17,18 +18,14 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
     private final BoardRepository boardRepository;
 
+
     @Override
-    public void createParentPost(String boardAcronym, String imageLink, String title, String poster, String text) {
+    public void createParentPost(PostRequest postRequest) {
 
     }
 
     @Override
-    public void createChildPost(String boardAcronym, String imageLink, String title, String poster, String text, String parentId) {
-
-    }
-
-    @Override
-    public void createChildPost(String boardAcronym, String imageLink, String title, String poster, String text, String parentId, String replyTo) {
+    public void createChildPost(PostRequest postRequest) {
 
     }
 

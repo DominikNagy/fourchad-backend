@@ -1,11 +1,11 @@
 package com.dominiknagy.fourchad.controllers;
 
+import com.dominiknagy.fourchad.dtos.PostRequest;
+import com.dominiknagy.fourchad.services.interfaces.BoardService;
 import com.dominiknagy.fourchad.services.interfaces.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -13,10 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebController {
 
     private final PostService postService;
+    private final BoardService boardService;
 
-    @PostMapping("/createParentPost")
-    public ResponseEntity<String> createParentPost() {
-        postService.createParentPost("b", "link.to.image.com/kIajs", "First title", "Anonymous", "this is a dummy text");
-        return ResponseEntity.ok("New parent post created from admin.");
+    @PostMapping("/posts")
+    public ResponseEntity<String> createParentPost(@RequestBody PostRequest postRequest) {
+        postService.createParentPost(postRequest);
+        return ResponseEntity.ok("New parent post created.");
+    }
+
+    @GetMapping("/boards/{acronym}")
+    public ResponseEntity<Object> retrieveBoard(@PathVariable String acronym) {
+        return ResponseEntity.ok(boardService.retrieveBoard(acronym));
     }
 }

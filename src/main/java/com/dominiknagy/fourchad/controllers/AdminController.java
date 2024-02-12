@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*")
 @RequestMapping("/admin")
+@CrossOrigin(origins = "*")
 public class AdminController {
 
     private final BoardService boardService;
